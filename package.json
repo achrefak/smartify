@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "material-ui": "^0.19.0",
+    "material-ui-expandable-text-field": "0.0.2",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-form-material-ui": "^1.2.0"
   },
   "proxy": "http://daiquiri.fluidware.it:18175",
   "devDependencies": {

@@ -3,23 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "material-ui": "^0.19.0",
     "material-ui-expandable-text-field": "0.0.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-form-material-ui": "^1.2.0"
-=======
-    "bootstrap": "^3.3.7",
-    "material-ui": "^0.18.7",
-    "react": "^15.6.1",
-    "react-bootstrap": "^0.31.2",
-    "react-dom": "^15.6.1",
-    "react-redux": "^5.0.5",
-    "react-tap-event-plugin": "^2.0.1",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
->>>>>>> origin
   },
   "proxy": "http://daiquiri.fluidware.it:18175",
   "devDependencies": {

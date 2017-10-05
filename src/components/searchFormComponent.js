@@ -30,7 +30,7 @@ class SearchForm extends Component {
                     <label className="custom-control custom-radio">
                         <input checked={this.state.search_type === 'artist'} onChange={e => this.setState({ search_type: 'artist', search_result: undefined })} id="radio1" name="radio" type="radio" className="custom-control-input" />
                         <span className="custom-control-indicator"> </span>
-                        <span className="custom-control-description">Artist</span>
+                        <span className="custom-control-Michaedescription">Artist</span>
                     </label>
                 </div>
                 <div className="col-md-4 col-sm-4 col-xs-4">
@@ -40,7 +40,6 @@ class SearchForm extends Component {
                         <span className="custom-control-description">Album</span>
                     </label>
                 </div>
-
                 <div className="col-md-4 col-sm-4 col-xs-4">
                     <label className="custom-control custom-radio">
                         <input checked={this.state.search_type === 'track'} onChange={e => this.setState({ search_type: 'track', search_result: undefined })} id="radio1" name="radio" type="radio" className="custom-control-input" />
@@ -51,16 +50,15 @@ class SearchForm extends Component {
                 <br />
                 <br />
                 <div className="col-md-7 col-sm-19 col-xs-6">
-
-                 <Link to={this.state.search_type+"/"}>  
-                  <button
-                  className="btn btn-primary btn-block" 
-                  style={{ margin: "0 90px" }} 
-                  onClick={e => this.doSearch()}>
-                  Search
-                  </button>                
-                  </Link>
-                  
+                    {this.state.search_result ? this.state.search_result[0].id : null}
+                    <Link to={this.state.search_type+"/142"}>
+                        <button
+                            className="btn btn-primary btn-block"
+                            style={{ margin: "0 90px" }}
+                            onClick={e => this.doSearch()}>
+                            Search
+                  </button>
+                    </Link>
                 </div>
                 <br />
                 <br />
@@ -73,7 +71,6 @@ class SearchForm extends Component {
 
         );
     }
-
 }
 export default withRouter(SearchForm)
 

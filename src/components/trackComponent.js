@@ -3,14 +3,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { likeTrack } from '../actions/trackActions';
 import { dislikeTrack } from '../actions/trackActions';
-import { likeDislikeList} from '../actions/trackActions';
-const style = {
-    label: {
-        top: -40,
-        position: 'relative',
-        left: 160,
-    },
-};
+import { withRouter } from 'react-router';
+
+
+
 class Track extends Component {
     constructor(props) {
         super(props);
@@ -19,28 +15,28 @@ class Track extends Component {
         };
     }
     likeDislike(data) {
-        let arrExist = this.props.redux.likeTrack.filter(obj => obj.id === this.props.varTracks.id)
-        arrExist.length === 0 ? this.props.likeTrack(data) : this.props.dislikeTrack(data);
+        let exist = this.props.redux.likeTrack.filter(obj => obj.id === this.props.varTracks.id)
+        exist.length === 0 ? this.props.likeTrack(data) : this.props.dislikeTrack(data);
     }
     likeDislikeLabel(data) {
-        let arrExist = this.props.redux.likeTrack.filter(obj => obj.id === this.props.varTracks.id)
+        let exist = this.props.redux.likeTrack.filter(obj => obj.id === this.props.varTracks.id)
         let status;
-        arrExist.length === 0 ? status = 'Like' : status = 'Dislike';
+        exist.length === 0 ? status = 'Like' : status = 'Dislike';
         return status
     }
     likeDislikeList(data) {
-        let arrExist = this.props.redux.likeTrack.filter(obj => obj.id === this.props.varTracks.id)
-        arrExist.length === 0 ? this.props.likeTrack(data) : this.props.dislikeTrack(data);
+        let exist = this.props.redux.likeTrack.filter(obj => obj.id === data.id)
+        exist.length === 0 ? this.props.likeTrack(data) : this.props.dislikeTrack(data);
     }
-
+  
     render() {
         return<div>
-        
         <div className="card" style={{ width: "20 rem" }}>
             <br />
             <br />
             <div className="col-md-12 col-sm-12 col-xs-12">
                 <div className="col-md-10 col-sm-10 col-xs-10">
+                {console.log(this.props.match.params)}
                     {this.props.varTracks.name}             
                 </div>
                 <div className="col-md-2 col-sm-2 col-xs-2">
@@ -51,14 +47,14 @@ class Track extends Component {
                         <i className={this.likeDislikeLabel(this.props.varTracks) === 'Like' ? 'fa fa-heart-o' : 'fa fa-heart'}></i>                    
                     </button>
                 </div>
-            </div>           
+            </div>
         </div>
         <div id="myModall" className="modal fade" role="dialog">
         <div className="modal-dialog">
             <div className="modal-content">
                 <div className="modal-header">
                     <button type="button" className="close" data-dismiss="modal">&times;</button>
-                    <h4 className="modal-title"> List of Favorite Users </h4>
+              <center>      <h4 className="modal-title"> List of Favorite Tracks </h4></center>
                 </div>
                 {this.props.redux.likeTrack.length > 0 ? this.props.redux.likeTrack.map((data, key) => {
                     return (<div key={key} className="media">
@@ -96,4 +92,4 @@ const TrackContainer = connect(
     mapStateToProps,
     mapDispatchToProps
 )(Track)
-export default TrackContainer;
+export default withRouter (TrackContainer);

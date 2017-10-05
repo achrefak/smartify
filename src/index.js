@@ -8,12 +8,11 @@ import { store } from './store/appStore';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router';
 
-
 ReactDOM.render(
     <Provider store={store}>
         <Router>
             <div>
-                <Route exact path="/:var?/" component={App} />
+                <Route exact path="/:artist?/:id?/:album?/:var?/" component={App} />
             </div>
         </Router>
     </Provider>,

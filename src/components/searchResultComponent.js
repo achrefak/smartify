@@ -36,7 +36,4 @@ this.props.srResult && this.props.srType === 'artist'?
     }
 
 }
-
-
-
 export default SearchResult
